@@ -1,4 +1,6 @@
 Calculator written in Java. ☕
+# Math library
+This calculator uses my math library for java: [`math-java`](https://github.com/aalaqily/math-java) to parse mathematical expressions and evaluate them, this repo just contains the frontend code, whether for CLI or GUI, so if you are looking for a Math library you better take a look at my Math library repo: [`math-java`](https://github.com/aalaqily/math-java).
 # Build
 You need [Gradle](https://gradle.org/install/) to build this calculator, once you install Gradle you can build 2 executable JARs:
 
