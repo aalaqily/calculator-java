@@ -1,3 +1,6 @@
+[![Gradle workflow](https://img.shields.io/github/actions/workflow/status/aalaqily/calculator-java/gradle.yml?label=Gradle&logo=gradle)](https://github.com/aalaqily/calculator-java/actions/workflows/gradle.yml)
+![Latest Tag](https://img.shields.io/github/v/tag/aalaqily/calculator-java?label=Latest%20Tag&sort=semver)
+
 Calculator written in Java. ☕
 # Math library
 This calculator uses my math library for java: [`math-java`](https://github.com/aalaqily/math-java) to parse mathematical expressions and evaluate them, this repo just contains the frontend code, whether for CLI or GUI, so if you are looking for a Math library you better take a look at my Math library repo: [`math-java`](https://github.com/aalaqily/math-java).
