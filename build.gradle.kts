@@ -4,10 +4,14 @@
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.10/userguide/building_java_projects.html in the Gradle documentation.
  */
+ 
+ import java.net.URL
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    java
+    eclipse
 }
 
 repositories {
@@ -19,8 +23,8 @@ dependencies {
     testImplementation(libs.junit.jupiter)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    implementation(project("mathlib"))
+    
+    implementation(files("libs/math-java.jar"))
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -68,4 +72,28 @@ tasks.register<Jar>("jarGUI") {
             .filter { it.name.endsWith("jar") }
             .map { zipTree(it) }
     })
+}
+
+val mathLibJar = "math-java.jar"
+val mathLibJarFile = file("libs/$mathLibJar")
+val mathLibJarUrl = "https://github.com/aalaqily/math-java/releases/download/v0.1.0/math-java-0.1.0.jar"
+
+tasks.register("ensureMathLibPresent") {
+    doLast {
+        if (!mathLibJarFile.exists()) {
+            println("Math library JAR not found, downloading from $mathLibJarUrl")
+            mathLibJarFile.parentFile.mkdirs()
+            URL(mathLibJarUrl).openStream().use { input ->
+                mathLibJarFile.outputStream().use { output -> input.copyTo(output) }
+            }
+            println("Math library JAR downloaded to ${mathLibJarFile.absolutePath}")
+        } else {
+            println("Math library JAR found at ${mathLibJarFile.absolutePath}")
+        }
+    }
+}
+
+// Example: make compile tasks depend on this custom check/download
+tasks.named("compileJava") {
+    dependsOn("ensureMathLibPresent")
 }

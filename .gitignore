@@ -1,6 +1,7 @@
 bin/
 .classpath
 .project
+libs/
 # Ignore Gradle project-specific cache directory
 .gradle
 
@@ -12,3 +13,4 @@ build
 
 # Ignore Eclipse files
 .settings/
+
