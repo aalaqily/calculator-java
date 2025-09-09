@@ -9,3 +9,6 @@ build
 
 # Ignore backup files
 *~
+
+# Ignore Eclipse files
+.settings/
