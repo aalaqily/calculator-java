@@ -30,7 +30,7 @@ public class CLI
 	
 	public static void main(String args[])
 	{
-		System.out.println("--- Java-Calculator 0.7 by Ahmad Asaad ---\nto stop type exit");
+		System.out.println("--- Java-Calculator 0.8 by Ahmad Asaad ---\nto stop type exit");
 		new CLI();
 		System.exit(0);
 	}

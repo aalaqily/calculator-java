@@ -52,7 +52,7 @@ public class GUI
 		frame.setBounds(100, 100, 400, 450);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("@author Ahmad Asaad             Java-Calculator-v0.7");
+		JLabel label = new JLabel("@author Ahmad Asaad             Java-Calculator-v0.8");
 		label.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		label.setBounds(10, 0, 364, 27);
 		frame.getContentPane().add(label);
