@@ -39,3 +39,33 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.register<Jar>("jarCLI") {
+    group = "build"
+    archiveBaseName.set("calculator-cli")
+    manifest {
+        attributes["Main-Class"] = "CLI"
+    }
+    from(sourceSets.main.get().output)
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get()
+            .filter { it.name.endsWith("jar") }
+            .map { zipTree(it) }
+    })
+}
+
+tasks.register<Jar>("jarGUI") {
+    group = "build"
+    archiveBaseName.set("calculator-gui")
+    manifest {
+        attributes["Main-Class"] = "GUI"
+    }
+    from(sourceSets.main.get().output)
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get()
+            .filter { it.name.endsWith("jar") }
+            .map { zipTree(it) }
+    })
+}
